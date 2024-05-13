@@ -1,4 +1,6 @@
 ﻿using MeowTasksBackend.DAL.DBContext;
+using MeowTasksBackend.DAL.Repositories;
+using MeowTasksBackend.DAL.Repositories.Contract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +16,7 @@ namespace MeowTasksBackend.IOC
         opt.UseSqlServer(config.GetConnectionString("SqlString"));
       });
 
-
+      services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
     }
   }
 }
