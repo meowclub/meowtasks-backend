@@ -1,0 +1,6 @@
+@MeowTasksBackend.API_HostAddress = http://localhost:5269
+
+GET {{MeowTasksBackend.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
