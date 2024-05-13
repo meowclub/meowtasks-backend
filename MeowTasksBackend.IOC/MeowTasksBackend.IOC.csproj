@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MeowTasksBackend.DAL\MeowTasksBackend.DAL.csproj" />
+    <ProjectReference Include="..\MeowTasksBackend.Entity\MeowTasksBackend.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

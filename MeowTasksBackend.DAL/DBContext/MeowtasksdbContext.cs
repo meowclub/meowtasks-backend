@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace MeowTasksBackend.Entity;
+using MeowTasksBackend.Entity;
+
+namespace MeowTasksBackend.DAL.DBContext;
 
 public partial class MeowtasksdbContext : DbContext
 {
