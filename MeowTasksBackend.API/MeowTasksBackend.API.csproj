@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MeowTasksBackend.DTO\MeowTasksBackend.DTO.csproj" />
+    <ProjectReference Include="..\MeowTasksBackend.Entity\MeowTasksBackend.Entity.csproj" />
     <ProjectReference Include="..\MeowTasksBackend.IOC\MeowTasksBackend.IOC.csproj" />
   </ItemGroup>
 

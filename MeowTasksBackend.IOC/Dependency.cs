@@ -1,6 +1,7 @@
 ﻿using MeowTasksBackend.DAL.DBContext;
 using MeowTasksBackend.DAL.Repositories;
 using MeowTasksBackend.DAL.Repositories.Contract;
+using MeowTasksBackend.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,8 @@ namespace MeowTasksBackend.IOC
       });
 
       services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+      services.AddAutoMapper(typeof(AutoMapperProfile));
     }
   }
 }

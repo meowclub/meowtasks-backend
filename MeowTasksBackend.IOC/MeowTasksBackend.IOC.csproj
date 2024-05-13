@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MeowTasksBackend.BLL\MeowTasksBackend.BLL.csproj" />
     <ProjectReference Include="..\MeowTasksBackend.DAL\MeowTasksBackend.DAL.csproj" />
-    <ProjectReference Include="..\MeowTasksBackend.Entity\MeowTasksBackend.Entity.csproj" />
+    <ProjectReference Include="..\MeowTasksBackend.Utilities\MeowTasksBackend.Utilities.csproj" />
   </ItemGroup>
 
 </Project>
