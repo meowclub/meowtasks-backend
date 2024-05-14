@@ -19,5 +19,11 @@ namespace MeowTasksBackend.Utilities.Consts
     public string MEOWUSER_LOGIN_INCORRECT_CREDENTIALS = "Incorrect credentials...";
     public string MEOWUSER_LOGIN_FAILED = "Meow user login failed";
     public string MEOWUSER_LOGIN_SUCESS = "Meow user logged!";
+
+    // util/colors
+    public string UTIL_COLORS_SUCCESS = "Colors";
+
+    // util/avatars
+    public string UTIL_AVATARS_SUCCESS = "Avatars";
   }
 }
