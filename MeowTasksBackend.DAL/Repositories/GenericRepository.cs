@@ -52,11 +52,10 @@ namespace MeowTasksBackend.DAL.Repositories
     {
       try
       {
-        return _mwtdbContext.Set<T>().FirstOrDefault(filter);
+        return _mwtdbContext.Set<T>().Where(filter).SingleOrDefault();
       }
       catch (Exception)
       {
-
         throw;
       }
     }

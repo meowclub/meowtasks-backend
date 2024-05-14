@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MeowTasksBackend.DTO\MeowTasksBackend.DTO.csproj" />
+    <ProjectReference Include="..\MeowTasksBackend.Entity\MeowTasksBackend.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

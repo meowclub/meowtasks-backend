@@ -1,4 +1,6 @@
-﻿using MeowTasksBackend.DAL.DBContext;
+﻿using MeowTasksBackend.BLL.Services;
+using MeowTasksBackend.BLL.Services.Contract;
+using MeowTasksBackend.DAL.DBContext;
 using MeowTasksBackend.DAL.Repositories;
 using MeowTasksBackend.DAL.Repositories.Contract;
 using MeowTasksBackend.Utilities;
@@ -20,6 +22,8 @@ namespace MeowTasksBackend.IOC
       services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
       services.AddAutoMapper(typeof(AutoMapperProfile));
+
+      services.AddScoped<IAuthService, AuthService>();
     }
   }
 }
