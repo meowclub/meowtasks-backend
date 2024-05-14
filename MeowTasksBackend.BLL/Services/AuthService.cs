@@ -58,15 +58,27 @@ namespace MeowTasksBackend.BLL.Services
     public async Task<string> RegisterMeowUser(MeowUserRegisterRequestDTO model)
     {
       ManageToken mngToken = new();
+      DataConsts dtConsts = new();
 
       try
       {
+        // Check Nickname
         var FindUser = _meowUserRepository.Get(u => u.Nickname == model.Nickname);
 
         if (FindUser != null)
-        {
           throw new TaskCanceledException(_rspConsts.MEOWUSER_REGISTER_NICKNAME_TAKED);
-        }
+
+        // Check Color
+        var FindColor = dtConsts.Colors.Where(c => c.Key.Equals(model.Color)).FirstOrDefault().Key;
+
+        if (FindColor == null)
+          throw new TaskCanceledException(_rspConsts.MEOWUSER_REGISTER_COLOR_INCORRECT);
+
+        // Check avatar
+        var FindAvatar = dtConsts.Avatars.Where(c => c.Key.Equals(model.Avatar)).FirstOrDefault().Key;
+
+        if (FindAvatar == null)
+          throw new TaskCanceledException(_rspConsts.MEOWUSER_REGISTER_AVATAR_INCORRECT);
 
         var NewUser = await _meowUserRepository.Create(_mapper.Map<MeowUser>(model));
         
