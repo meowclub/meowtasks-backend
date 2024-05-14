@@ -11,6 +11,6 @@ namespace MeowTasksBackend.BLL.Services.Contract
   public interface IAuthService
   {
     Task<string> RegisterMeowUser(MeowUserRegisterRequestDTO model);
-    Task<string> LoginMeowUser(MeowUserLoginRequestDTO model);
+    string LoginMeowUser(MeowUserLoginRequestDTO model);
   }
 }

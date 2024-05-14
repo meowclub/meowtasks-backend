@@ -31,9 +31,28 @@ namespace MeowTasksBackend.BLL.Services
       _config = config;
     }
 
-    public Task<string> LoginMeowUser(MeowUserLoginRequestDTO model)
+    public string LoginMeowUser(MeowUserLoginRequestDTO model)
     {
-      throw new NotImplementedException();
+      ManageToken mngToken = new();
+
+      try
+      {
+        var FindUser = _meowUserRepository.Get(u => u.Nickname == model.Nickname && u.Password == model.Password);
+
+        if (FindUser == null)
+        {
+          throw new TaskCanceledException(_rspConsts.MEOWUSER_LOGIN_INCORRECT_CREDENTIALS);
+        }
+
+        var token = mngToken.CreateToken(_config, FindUser);
+
+        return token;
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
     }
 
     public async Task<string> RegisterMeowUser(MeowUserRegisterRequestDTO model)

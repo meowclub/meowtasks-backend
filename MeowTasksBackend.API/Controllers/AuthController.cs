@@ -52,5 +52,38 @@ namespace MeowTasksBackend.API.Controllers
         return BadRequest(rsp);
       }
     }
+
+    [HttpPost]
+    [Route("/login")]
+    public IActionResult LoginMeowUser([FromBody] MeowUserLoginRequestDTO model)
+    {
+      GenericResponse<string> rsp = new();
+
+      try
+      {
+        var token = _authService.LoginMeowUser(model);
+
+        if (token == null)
+        {
+          rsp.meowOK = false;
+          rsp.msg = _rspConsts.MEOWUSER_LOGIN_FAILED;
+
+          return BadRequest(rsp);
+        }
+
+        rsp.meowOK = true;
+        rsp.msg = _rspConsts.MEOWUSER_LOGIN_SUCESS;
+        rsp.data = token;
+
+        return Ok(rsp);
+      }
+      catch (Exception ex)
+      {
+        rsp.meowOK = false;
+        rsp.msg = ex.Message;
+
+        return BadRequest(rsp);
+      }
+    }
   }
 }
