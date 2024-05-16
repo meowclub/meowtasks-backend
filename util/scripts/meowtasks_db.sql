@@ -1,6 +1,8 @@
 create database meowtasksdb
 go
 
+use meowtasksdb
+
 create table meowUser(
   meowUserId int primary key identity(1, 1),
   nickname varchar(32) unique not null,
@@ -36,10 +38,12 @@ go
 
 create table meowTask(
   meowTaskId int primary key identity(1, 1),
+  userId int not null references meowUser(meowUserId),
   name varchar(50) unique not null,
   description varchar(200) default 'not description.',
   status int default 0,
   type int default 0,
+  private bit default 0,
   createdAt datetime default getdate()
 )
 go

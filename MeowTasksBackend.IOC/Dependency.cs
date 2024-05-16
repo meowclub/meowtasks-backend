@@ -24,6 +24,8 @@ namespace MeowTasksBackend.IOC
       services.AddAutoMapper(typeof(AutoMapperProfile));
 
       services.AddScoped<IAuthService, AuthService>();
+      services.AddScoped<IUtilService, UtilService>();
+      services.AddScoped<IMeowTaskService, MeowTaskService>();
     }
   }
 }

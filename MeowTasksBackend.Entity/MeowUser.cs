@@ -23,5 +23,7 @@ public partial class MeowUser
 
     public DateTime? UpdatedAt { get; set; }
 
+    public virtual ICollection<MeowTask> MeowTasks { get; set; } = new List<MeowTask>();
+
     public virtual ICollection<MeowUserRole> MeowUserRoles { get; set; } = new List<MeowUserRole>();
 }

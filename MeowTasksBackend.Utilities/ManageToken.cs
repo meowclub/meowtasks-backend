@@ -34,7 +34,7 @@ namespace MeowTasksBackend.Utilities
       var tokenDescriptor = new SecurityTokenDescriptor
       {
         Subject = claims,
-        Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(config.GetSection("JWTSettings:expires").Value)),
+        Expires = DateTime.UtcNow.AddHours(Convert.ToDouble(config.GetSection("JWTSettings:expires").Value)),
         SigningCredentials = credentialsToken
       };
 

@@ -21,7 +21,7 @@ namespace MeowTasksBackend.API.Controllers
     }
 
     [HttpPost]
-    [Route("/register")]
+    [Route("register")]
     public async Task<IActionResult> RegisterMeowUser([FromBody] MeowUserRegisterRequestDTO model)
     {
       GenericResponse<string> rsp = new();
@@ -54,7 +54,7 @@ namespace MeowTasksBackend.API.Controllers
     }
 
     [HttpPost]
-    [Route("/login")]
+    [Route("login")]
     public IActionResult LoginMeowUser([FromBody] MeowUserLoginRequestDTO model)
     {
       GenericResponse<string> rsp = new();

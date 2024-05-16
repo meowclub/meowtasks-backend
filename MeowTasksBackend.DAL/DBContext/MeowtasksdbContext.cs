@@ -28,12 +28,11 @@ public partial class MeowtasksdbContext : DbContext
     public virtual DbSet<MeowUserRole> MeowUserRoles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<MeowProduct>(entity =>
         {
-            entity.HasKey(e => e.MeowProductId).HasName("PK__meowProd__83DDB4A67477C5B9");
+            entity.HasKey(e => e.MeowProductId).HasName("PK__meowProd__83DDB4A6F18A8722");
 
             entity.ToTable("meowProduct");
 
@@ -64,11 +63,11 @@ public partial class MeowtasksdbContext : DbContext
 
         modelBuilder.Entity<MeowTask>(entity =>
         {
-            entity.HasKey(e => e.MeowTaskId).HasName("PK__meowTask__226D9A1E1F9B2C95");
+            entity.HasKey(e => e.MeowTaskId).HasName("PK__meowTask__226D9A1EE728D2DD");
 
             entity.ToTable("meowTask");
 
-            entity.HasIndex(e => e.Name, "UQ__meowTask__72E12F1B1A15F2C8").IsUnique();
+            entity.HasIndex(e => e.Name, "UQ__meowTask__72E12F1BE3BB26C7").IsUnique();
 
             entity.Property(e => e.MeowTaskId).HasColumnName("meowTaskId");
             entity.Property(e => e.CreatedAt)
@@ -84,21 +83,30 @@ public partial class MeowtasksdbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("name");
+            entity.Property(e => e.Private)
+                .HasDefaultValue(false)
+                .HasColumnName("private");
             entity.Property(e => e.Status)
                 .HasDefaultValue(0)
                 .HasColumnName("status");
             entity.Property(e => e.Type)
                 .HasDefaultValue(0)
                 .HasColumnName("type");
+            entity.Property(e => e.UserId).HasColumnName("userId");
+
+            entity.HasOne(d => d.User).WithMany(p => p.MeowTasks)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__meowTask__userId__5AEE82B9");
         });
 
         modelBuilder.Entity<MeowUser>(entity =>
         {
-            entity.HasKey(e => e.MeowUserId).HasName("PK__meowUser__145BDA9884EFF2DF");
+            entity.HasKey(e => e.MeowUserId).HasName("PK__meowUser__145BDA98DA9B389E");
 
             entity.ToTable("meowUser");
 
-            entity.HasIndex(e => e.Nickname, "UQ__meowUser__5CF1C59B53653F36").IsUnique();
+            entity.HasIndex(e => e.Nickname, "UQ__meowUser__5CF1C59B9724AAFB").IsUnique();
 
             entity.Property(e => e.MeowUserId).HasColumnName("meowUserId");
             entity.Property(e => e.Avatar)
@@ -155,17 +163,17 @@ public partial class MeowtasksdbContext : DbContext
             entity.HasOne(d => d.MeowUser).WithMany()
                 .HasForeignKey(d => d.MeowUserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__meowUserB__meowU__72C60C4A");
+                .HasConstraintName("FK__meowUserB__meowU__619B8048");
 
             entity.HasOne(d => d.Product).WithMany()
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__meowUserB__produ__73BA3083");
+                .HasConstraintName("FK__meowUserB__produ__628FA481");
         });
 
         modelBuilder.Entity<MeowUserRole>(entity =>
         {
-            entity.HasKey(e => e.RoleId).HasName("PK__meowUser__CD98462AB29EBAE9");
+            entity.HasKey(e => e.RoleId).HasName("PK__meowUser__CD98462A339673BC");
 
             entity.ToTable("meowUserRole");
 
@@ -183,7 +191,7 @@ public partial class MeowtasksdbContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.MeowUserRoles)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__meowUserR__userI__6477ECF3");
+                .HasConstraintName("FK__meowUserR__userI__5165187F");
         });
 
         OnModelCreatingPartial(modelBuilder);

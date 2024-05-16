@@ -1,4 +1,5 @@
-﻿using MeowTasksBackend.Utilities;
+﻿using MeowTasksBackend.BLL.Services.Contract;
+using MeowTasksBackend.Utilities;
 using MeowTasksBackend.Utilities.Consts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ namespace MeowTasksBackend.API.Controllers
   [ApiController]
   public class UtilController : ControllerBase
   {
-    private readonly DataConsts _dtConts = new();
+    private readonly IUtilService _utilService;
     private readonly ResponseConsts _rspConsts = new();
 
     [HttpGet]
@@ -21,10 +22,8 @@ namespace MeowTasksBackend.API.Controllers
         
       try
       {
-        var Colors = JsonSerializer.Serialize(_dtConts.Colors);
-
         rsp.meowOK = true;
-        rsp.data = Colors;
+        rsp.data = _utilService.GetColors();
         rsp.msg = _rspConsts.UTIL_COLORS_SUCCESS;
 
         return Ok(rsp);
@@ -46,10 +45,8 @@ namespace MeowTasksBackend.API.Controllers
 
       try
       {
-        var Avatars = JsonSerializer.Serialize(_dtConts.Avatars);
-
         rsp.meowOK = true;
-        rsp.data = Avatars;
+        rsp.data = rsp.data = _utilService.GetAvatars(); ;
         rsp.msg = _rspConsts.UTIL_AVATARS_SUCCESS;
 
         return Ok(rsp);

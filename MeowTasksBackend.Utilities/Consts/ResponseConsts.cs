@@ -25,5 +25,43 @@ namespace MeowTasksBackend.Utilities.Consts
 
     // util/avatars
     public string UTIL_AVATARS_SUCCESS = "Avatars";
+
+    //meowTask/1
+    public string MEOWTASK_GET_TASK_INVALID = "Meow task not exist or meow user id is incorrect.";
+    public string MEOWTASK_GET_TASK_SUCCESS = "Meow task found";
+    public string MEOWTASK_GET_TASK_FAILED = "Meow task failed";
+
+    // meowTask/
+    public string MEOWTASK_GET_ALL_TASKS_INCORRECT_STATUS = "Argumented status incorrect...";
+    public string MEOWTASK_GET_ALL_TASKS_SUCCESS = "All meow tasks success";
+
+    // meowTask/getAllMeowTasksByMeowUser/1
+    public string MEOWTASK_GET_ALL_TASKS_BY_MEOW_USER_INVALID_USER = "Invalid user...";
+    public string MEOWTASK_GET_ALL_TASKS_BY_MEOW_USER_SUCCESS = "All meow tasks by user success";
+
+    // meowTask/new
+    public string MEOWTASK_NEW_TASK_CREATED = "This meow task is created...";
+    public string MEOWTASK_NEW_TASK_FAILED = "Meow task new failed";
+    public string MEOWTASK_NEW_TASK_SUCCESS = "Meow task new success";
+
+    // meowTask/update
+    public string MEOWTASK_UPDATE_TASK_FAILED = "Meow task update failed";
+    public string MEOWTASK_UPDATE_TASK_SUCCESS = "Meow update task success";
+
+    // meowTask/delete
+    public string MEOWTASK_DELETE_TASK_FAILED = "Meow task delete failed";
+    public string MEOWTASK_DELETE_TASK_SUCCESS = "Meow task success";
+
+    // meowTask/markMeowTaskAsPending
+    public string MEOWTASK_MARK_MEOW_TASK_AS_PENDING_SUCCESS = "Meow task now is pending";
+
+    // meowTask/markMeowTaskAsPending
+    public string MEOWTASK_MARK_MEOW_TASK_AS_IN_PROCESS_SUCCESS = "Meow task now is in process";
+
+    // meowTask/markMeowTaskAsPending
+    public string MEOWTASK_MARK_MEOW_TASK_AS_COMPLETED_SUCCESS = "Meow task now is completed";
+    
+    // meowTask/markMeowTaskAs | General failed
+    public string MEOWTASK_MARK_MEOW_TASK_FAILED = "Meow task mark failed";
   }
 }

@@ -14,6 +14,12 @@ namespace MeowTasksBackend.Utilities
         CreateMap<MeowUser, MeowUserRegisterRequestDTO>().ReverseMap();
 
       #endregion
+
+      #region MeowTask
+        CreateMap<MeowTask, MeowTaskDTO>().ReverseMap();
+        CreateMap<MeowTaskNewRequestDTO, MeowTaskDTO>().ReverseMap();
+        CreateMap<MeowTaskNewRequestDTO, MeowTask>().ReverseMap();
+      #endregion
     }
   }
 }
