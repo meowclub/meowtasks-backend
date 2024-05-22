@@ -68,6 +68,10 @@ namespace MeowTasksBackend.BLL.Services
         if (FindUser != null)
           throw new TaskCanceledException(_rspConsts.MEOWUSER_REGISTER_NICKNAME_TAKED);
 
+        // Check password
+        if (model.Password != model.PasswordConfirmation)
+          throw new TaskCanceledException(_rspConsts.MEOWUSER_REGISTER_PASSWORD_CONFIRMATION_NOT_MATCH);
+
         // Check Color
         var FindColor = dtConsts.Colors.Where(c => c.Key.Equals(model.Color)).FirstOrDefault().Key;
 

@@ -12,6 +12,12 @@ namespace MeowTasksBackend.API.Controllers
   public class UtilController : ControllerBase
   {
     private readonly IUtilService _utilService;
+
+    public UtilController(IUtilService utilService)
+    {
+      _utilService = utilService;
+    }
+
     private readonly ResponseConsts _rspConsts = new();
 
     [HttpGet]

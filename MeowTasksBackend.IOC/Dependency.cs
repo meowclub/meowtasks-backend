@@ -26,6 +26,7 @@ namespace MeowTasksBackend.IOC
       services.AddScoped<IAuthService, AuthService>();
       services.AddScoped<IUtilService, UtilService>();
       services.AddScoped<IMeowTaskService, MeowTaskService>();
+      services.AddScoped<IMeowUserService, MeowUserService>();
     }
   }
 }

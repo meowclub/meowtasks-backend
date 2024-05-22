@@ -10,11 +10,11 @@ namespace MeowTasksBackend.Utilities.Consts
   {
     public Dictionary<string, string> Avatars = new()
     {
-      { "default", "default" },
-      { "sad", "sad" },
-      { "happy", "happy" },
-      { "pedro", "pedro" },
-      { "cute", "cute" }
+      { "default", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzlWNxVLktOUFS4XKHGMkdB4k9ICzzFdDoJbxOvU-IeQ&s" },
+      { "sad", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTcEjrARLpxNgKA4lv4jWsLdUS8cYgebrDqbRxumRJ0w&s" },
+      { "happy", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YBJpHnNF66LHV9i9c4YhTsafnDKUfstG8XW90NOy_w&s" },
+      { "pedro", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2zMUgl8o7RNW7qxm0GZL97o9vyqhmW2wvDK4Ae9lt-bT8fpEzjfrF15x85EVyz3-_m88&usqp=CAU" },
+      { "cute", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1UMj_tOmJ6HjPSKkaQ50waJfftPdbCzXGkvnZ5XaTKw&s" }
     };
 
     public Dictionary<string, string> Colors = new()

@@ -14,6 +14,7 @@ namespace MeowTasksBackend.Utilities.Consts
     public string MEOWUSER_REGISTER_NICKNAME_TAKED = "Nickname taked...";
     public string MEOWUSER_REGISTER_AVATAR_INCORRECT = "Avatar incorrect...";
     public string MEOWUSER_REGISTER_COLOR_INCORRECT = "Color incorrect";
+    public string MEOWUSER_REGISTER_PASSWORD_CONFIRMATION_NOT_MATCH = "Password confirmation not match.";
 
     // auth/login
     public string MEOWUSER_LOGIN_INCORRECT_CREDENTIALS = "Incorrect credentials...";
@@ -63,5 +64,9 @@ namespace MeowTasksBackend.Utilities.Consts
     
     // meowTask/markMeowTaskAs | General failed
     public string MEOWTASK_MARK_MEOW_TASK_FAILED = "Meow task mark failed";
+
+    // meowUser/me
+    public string MEOWUSER_ME_SUCCESS = "MeowUser me success";
+    public string MEOWUSER_ME_FAILED = "MeowUser me failed";
   }
 }
